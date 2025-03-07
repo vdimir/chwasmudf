@@ -1,0 +1,6 @@
+[package]
+name = "clickhouse_wasm_sdk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

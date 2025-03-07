@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "clickhouse_wasm_example", "clickhouse_wasm_udf_bindgen", "clickhouse_wasm_sdk",
+]
+resolver = "2"
