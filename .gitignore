@@ -1,0 +1,6 @@
+/target
+*.wasm
+
+.zed
+.vscode
+.idea
