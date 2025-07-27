@@ -124,8 +124,7 @@ pub extern "C" fn always_returns_ten_rows(
 pub extern "C" fn get_block_size(_data: &CHBytesBuffer, num_rows: usize) -> *const CHBytesBuffer {
     let mut serialized = Vec::<u8>::new();
     let mut cout = Cursor::new(&mut serialized);
-    for i in 0..num_rows {
-        clickhouse_logf!("row {}/{}", i, num_rows);
+    for _ in 0..num_rows {
         let write_res = writeln!(&mut cout, "{}", num_rows);
         if write_res.is_err() {
             clickhouse_fatalf!("Error serializing data: {:?}", write_res.err());

@@ -1,5 +1,3 @@
-use crate::clickhouse_logf;
-
 #[repr(C)]
 #[derive(Debug)]
 pub struct CHBytesBuffer {
@@ -31,8 +29,7 @@ pub extern "C" fn clickhouse_create_buffer(size: usize) -> *mut CHBytesBuffer {
     if size == 0 {
         return std::ptr::null_mut();
     }
-    let buf = CHBytesBuffer::from_vec(Vec::with_capacity(size));
-    clickhouse_logf!("Allocated buffer {:?}", buf);
+    let buf = CHBytesBuffer::from_vec(vec![0; size]);
     let ptr = Box::into_raw(Box::new(buf));
     return ptr;
 }
@@ -42,7 +39,6 @@ pub extern "C" fn clickhouse_destroy_buffer(ptr: *mut CHBytesBuffer) {
     if ptr.is_null() {
         return;
     }
-    clickhouse_logf!("Deallocating buffer {:?}", *ptr);
     unsafe {
         let ptr = Box::from_raw(ptr);
         let _ = Vec::<u8>::from_raw_parts(ptr.ptr as *mut u8, ptr.len, ptr.capacity);
