@@ -1,0 +1,8 @@
+Cargo.lock
+/target
+
+.zed
+.vscode
+.idea
+
+.DS_Store
