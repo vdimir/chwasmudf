@@ -1,3 +1,5 @@
+**Repository moved to https://github.com/ClickHouse/clickhouse-wasm-udf-rs**
+
 # clickhouse-wasm-udf
 
 Rust SDK for writing [ClickHouse WASM UDFs](https://clickhouse.com/docs/en/sql-reference/functions/wasm_udf).
